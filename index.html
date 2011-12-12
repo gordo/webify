@@ -94,6 +94,14 @@ body {
     text-decoration: none;
 }
 
+/* Hack: change x offset of box-shadow because of 1px difference in blur's offset */
+@media only screen and (max-device-width: 480px),
+       only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .navbar > a.back {
+        -webkit-box-shadow: inset -3px 1px 4px #222, inset -1px -1px 0 #2a2a2a, 1px 1px 0 #555, 1px 1px 1px #444;
+    }
+}
+
 .navbar > a.back:before {
     content: "";
     position: absolute;
