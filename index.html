@@ -17,10 +17,18 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+fieldset {
+    border: 0;
+}
+
 
 /* Generic Elements */
 body {
     background-color: #e3e5e8;
+}
+
+article > p {
+    margin-bottom: 1em;
 }
 
 
@@ -254,6 +262,114 @@ body {
         padding: 0;
     }
 }
+
+
+/* iOS-y on-off switch */
+.switchonoff input[type="radio"] + label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    border-style: solid;
+    border-color: #88909d;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.switchonoff label:first-of-type {
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    border-width: 1px 0 1px 1px;
+}
+
+.switchonoff label:last-of-type {
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+    border-width: 1px 1px 1px 0;
+    margin-left: -4px;
+}
+
+.switchonoff input[type="radio"]:checked + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background: #acf;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.6); /* #375fa5 */
+    -webkit-box-shadow: inset 0 1px 0 #fafafa, inset 1px 0 0 #eee, inset -1px 0 0 #eee;
+    -moz-box-shadow: inset 0 1px 0 #fafafa, inset 1px 0 0 #eee, inset -1px 0 0 #eee;
+    box-shadow: inset 0 1px 0 #fafafa, inset 1px 0 0 #eee, inset -1px 0 0 #eee;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D7D7D7), color-stop(1, #fdfdfd));
+    background-image: -webkit-linear-gradient(top, #D7D7D7 0%, #fdfdfd 100%);
+    background-image: -moz-linear-gradient(top, #D7D7D7 0%, #fdfdfd 100%);
+    background-image: -o-linear-gradient(top, #D7D7D7 0%, #fdfdfd 100%);
+    background-image: -ms-linear-gradient(top, #D7D7D7 0%, #fdfdfd 100%);
+    background-image: linear-gradient(top, #D7D7D7 0%, #fdfdfd 100%);
+}
+
+.switchonoff input[type="radio"]:checked + label:first-of-type:after {
+    border-width: 0 1px 0 0;
+}
+
+.switchonoff input[type="radio"]:checked + label:last-of-type:after {
+    border-width: 0 0 0 1px;
+    left: -1px; /* force an overlap to prevent bkgd color of hidden label clashing with that of active label */
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; /* because of left: -1px */
+}
+
+.switchonoff input[type="radio"] {
+    display: none;
+}
+
+.switchonoff .off + label {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0569c2), color-stop(1, #65affe));
+    background-image: -webkit-linear-gradient(top, #0569c2 0%, #65affe 100%);
+    background-image: -moz-linear-gradient(top, #0569c2 0%, #65affe 100%);
+    background-image: -o-linear-gradient(top, #0569c2 0%, #65affe 100%);
+    background-image: -ms-linear-gradient(top, #0569c2 0%, #65affe 100%);
+    background-image: linear-gradient(top, #0569c2 0%, #65affe 100%);
+    color: #fff;
+}
+
+.switchonoff .on + label {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7e7e7e), color-stop(1, #b0b0b0));
+    background-image: -webkit-linear-gradient(top, #7e7e7e 0%, #b0b0b0 100%);
+    background-image: -moz-linear-gradient(top, #7e7e7e 0%, #b0b0b0 100%);
+    background-image: -o-linear-gradient(top, #7e7e7e 0%, #b0b0b0 100%);
+    background-image: -ms-linear-gradient(top, #7e7e7e 0%, #b0b0b0 100%);
+    background-image: linear-gradient(top, #7e7e7e 0%, #b0b0b0 100%);
+    color: #fff;
+    text-shadow: 0 -1px 0 #555;
+}
+
+@media only screen and (max-device-width: 480px),
+       only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .switchonoff input[type="radio"]:checked + label:after {
+        border-color: transparent;
+    }
+
+    .switchonoff input[type="radio"] + label {
+        font-weight: 600;
+    }
+}
 </style>
 </head>
 <body>
@@ -292,7 +408,19 @@ body {
         </article>
     
         <article id="page_two">
-            Two fish.
+            <p>
+                iOS-y on-off switch.
+            </p>
+            <!--Labels are adjacent to their opposite radio inputs because of the reversed pairing in the on/off switch.-->
+            <form name="hotandcold">
+                <fieldset class="switchonoff">
+                    <input type="radio" name="onoff" id="switchoff" class="off" />
+                    <label for="switchon" id="switchon_label">On</label>
+
+                    <input type="radio" name="onoff" id="switchon" class="on" checked="checked" />
+                    <label for="switchoff" id="switchoff_label">Off</label>
+                </fieldset>
+            </form>
         </article>
 
         <article id="page_three">
@@ -305,28 +433,37 @@ body {
 
 
 <script type="text/javascript">
-    var GM = GM || {};
+    /* The only reason why I'm using JS here is because in iOS, touch events on <label> elements do not trigger corresponding input selection. */
 
+    var GM = GM || {};
     GM.Webify = (function(GM) {
 
-        switchArticle = function(inputId) {
+        triggeriOSLabel = function(inputId) {
             document.getElementById(inputId).checked = true;
         };
 
         return {
             init: function() {
 
-                /* Below: because in iOS, touch events on <label> elements do not trigger corresponding input selection. */
-
+                // Tabs
                 document.getElementById('tab_one_label').addEventListener('touchend', function() {
-                    switchArticle('tab_one')
+                    triggeriOSLabel('tab_one')
                     }, false);
                 document.getElementById('tab_two_label').addEventListener('touchend', function() {
-                    switchArticle('tab_two')
+                    triggeriOSLabel('tab_two')
                     }, false);
                 document.getElementById('tab_three_label').addEventListener('touchend', function() {
-                    switchArticle('tab_three')
+                    triggeriOSLabel('tab_three')
                     }, false);
+
+                // On-off
+                document.getElementById('switchon_label').addEventListener('touchend', function() {
+                    triggeriOSLabel('switchon')
+                    }, false);
+                document.getElementById('switchoff_label').addEventListener('touchend', function() {
+                    triggeriOSLabel('switchoff')
+                    }, false);
+
             }
         };
     })(GM);
@@ -337,3 +474,4 @@ body {
 
 <!--Created: 2011 December 5-->
 <!--Revised: 2011 December 11-->
+<!--Revised: 2011 December 15 and 19 (on/off switch)-->
