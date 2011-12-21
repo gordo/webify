@@ -370,6 +370,135 @@ body {
         font-weight: 600;
     }
 }
+
+
+/* iOS-y footer navbar */
+footer > nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.5, #181818), color-stop(0.5, #000), color-stop(1, #000));
+    background-image: -webkit-linear-gradient(top, #555 0%, #181818 50%, #000 50%, #000 100%);
+    background-image: -moz-linear-gradient(top, #555 0%, #181818 50%, #000 50%, #000 100%);
+    background-image: -ms-linear-gradient(top, #555 0%, #181818 50%, #000 50%, #000 100%);
+    background-image: -o-linear-gradient(top, #555 0%, #181818 50%, #000 50%, #000 100%);
+    background-image: linear-gradient(top, #555 0%, #181818 50%, #000 50%, #000 100%);
+    -webkit-box-shadow: inset 0 1px 0 #737373;
+    -moz-box-shadow: inset 0 1px 0 #737373;
+    box-shadow: inset 0 1px 0 #737373;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #111;
+}
+
+footer > nav > ul {
+    margin: 0 auto;
+    width: 317px;
+    height: 50px;
+    line-height: 50px;
+}
+
+footer > nav > ul > li {
+    float: left; /* so that I can force the central tab upward */
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 9px;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+footer > nav > ul > li.primary {
+    margin-top: -10px;
+    padding-top: 9px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(1, #000));
+    background-image: -webkit-linear-gradient(top, #555 0%, #181818 50%, #111 50%, #000 100%);
+    background-image: -moz-linear-gradient(top, #555 0%, #181818 50%, #111 50%, #000 100%);
+    background-image: -ms-linear-gradient(top, #555 0%, #181818 50%, #111 50%, #000 100%);
+    background-image: -o-linear-gradient(top, #555 0%, #181818 50%, #111 50%, #000 100%);
+    background-image: linear-gradient(top, #555 0%, #181818 50%, #111 50%, #000 100%);
+    -webkit-box-shadow: inset 0 1px 0 #737373, inset 1px 1px 0 #444, inset -1px 1px 0 #444;
+    -moz-box-shadow: inset 0 1px 0 #737373, inset 1px 1px 0 #444, inset -1px 1px 0 #444;
+    box-shadow: inset 0 1px 0 #737373, inset 1px 1px 0 #444, inset -1px 1px 0 #444;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #111;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+}
+
+footer > nav > ul > li.primary:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: inherit;
+    padding-top: inherit;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.3, rgba(0, 0, 0, 0)), color-stop(0.4, rgba(0, 0, 0, 0)), color-stop(1, #000));
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background-image: linear-gradient(top, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%, #000 100%);
+}
+
+footer > nav > ul > li > a {
+    display: block;
+    position: relative;
+    z-index: 3;
+    color: #898989;
+    text-decoration: none;
+    top: 15px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 1px 0 #000;
+}
+
+footer > nav > ul > li.active {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(200, 200, 200, 0.1)), color-stop(0.5, rgba(200, 200, 200, 0.2)), color-stop(0.5, rgba(100, 100, 100, 0.3)), color-stop(1, rgba(100, 100, 100, 0.3)));
+    background-image: -webkit-linear-gradient(top, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.2) 50%, rgba(100, 100, 100, 0.3) 50%, rgba(100, 100, 100, 0.3) 100%);
+    background-image: -moz-linear-gradient(top, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.2) 50%, rgba(100, 100, 100, 0.3) 50%, rgba(100, 100, 100, 0.3) 100%);
+    background-image: -ms-linear-gradient(top, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.2) 50%, rgba(100, 100, 100, 0.3) 50%, rgba(100, 100, 100, 0.3) 100%);
+    background-image: -o-linear-gradient(top, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.2) 50%, rgba(100, 100, 100, 0.3) 50%, rgba(100, 100, 100, 0.3) 100%);
+    background-image: linear-gradient(top, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.2) 50%, rgba(100, 100, 100, 0.3) 50%, rgba(100, 100, 100, 0.3) 100%);
+    -webkit-box-shadow: inset 1px 0 0 rgba(80, 80, 80, 0.1), inset -1px 0 0 rgba(80, 80, 80, 0.1);
+    -moz-box-shadow: inset 1px 0 0 rgba(80, 80, 80, 0.1), inset -1px 0 0 rgba(80, 80, 80, 0.1);
+    box-shadow: inset 1px 0 0 rgba(80, 80, 80, 0.1), inset -1px 0 0 rgba(80, 80, 80, 0.1);
+}
+
+footer > nav > ul > li.active > a {
+    top: 0;
+    display: inline-block;
+    line-height: 80px;
+    color: #fff;
+}
+
+footer > nav > ul > li > a:after {
+    content: "@";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    margin: 0 auto;
+    width: 100%;
+    line-height: 0;
+    font-size: 28px;
+}
+
+footer > nav > ul > li.active > a:after {
+    top: 15px;
+}
+
 </style>
 </head>
 <body>
@@ -429,6 +558,38 @@ body {
 
     </section>
 
+    <footer>
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Profile
+                    </a>
+                </li>
+                <li class="primary">
+                    <a href="#">
+                        Share
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Friends
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
 </body>
 
 
@@ -475,3 +636,4 @@ body {
 <!--Created: 2011 December 5-->
 <!--Revised: 2011 December 11-->
 <!--Revised: 2011 December 15 and 19 (on/off switch)-->
+<!--Revised: 2011 December 19 and 20 (footer navbar)-->
